@@ -1,7 +1,9 @@
 #include <stdio.h>
 
+// Correção: receber por linha de comando.
 #define SIZE 5000
 
+// Correção: deu certo por sorte, isto não é alocação dinâmica em C.
 double a[SIZE][SIZE];
 double b[SIZE][SIZE];
 double c[SIZE][SIZE];
