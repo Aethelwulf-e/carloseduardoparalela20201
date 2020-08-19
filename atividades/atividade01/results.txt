@@ -1,3 +1,4 @@
+# Correção: Problemas de alocação e parâmetros. 2,0 Pontos.
 # Core i3 5005U 4 GB
 1m49.420s
 0m59.913s
