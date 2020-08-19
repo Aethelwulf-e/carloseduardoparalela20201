@@ -1,3 +1,4 @@
+// Correção: OK. 1,0 ponto.
 #include <stdio.h>
 #include <omp.h>
 
@@ -19,6 +20,7 @@ int main (int argc , char *argv[]) {
 			hi = (max / ts) + lo - 1;
 		}
 		sums[t] = 0;
+		printf("t%d lo: %d hi: %d hi - lo: %d\n", t, lo, hi, hi - lo);
 		for (int i = lo; i <= hi; i++)
 			sums[t] = sums[t] + i;
 	}
