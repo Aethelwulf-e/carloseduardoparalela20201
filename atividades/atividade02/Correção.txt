@@ -1,0 +1,5 @@
+Correção: 2,2 Pontos.
+
+No item 3 da questão 2, o raciocínio está correto, mas você poderia detalhar melhor o valor para cada thread i e j das dimensões criadas pelas regiões paralelas aninhadas.
+
+Na questão 01, apesar de não ser requisitado, sua resposta ficaria mais rica se você contabilizasse o tempo de cada opção de escalonamento. 
