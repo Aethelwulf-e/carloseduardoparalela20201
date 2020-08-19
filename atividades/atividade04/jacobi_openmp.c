@@ -1,7 +1,10 @@
+// Correção: +/- OK. Problemas de C, não de paralelismo. 2,0 Pontos.
 #include <stdio.h>
 
+// Novamente, não passou por parâmetro.
 #define SIZE 5000
 
+// Novamente, não fez alocação dinâmica.
 float m[2][SIZE][SIZE];
 int n;
 int k;
