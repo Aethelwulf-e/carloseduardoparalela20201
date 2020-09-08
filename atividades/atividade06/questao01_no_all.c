@@ -30,22 +30,22 @@ int main(int argc, char *argv[]) {
     // Média Global
     // MPI_Allreduce(&sum_local, &sum_global, 1, MPI_FLOAT, MPI_SUM, MPI_COMM_WORLD);
     
-	MPI_Send(&sum_local, 1, MPI_FLOAT, 0, 0, MPI_COMM_WORLD);
+    MPI_Send(&sum_local, 1, MPI_FLOAT, 0, 0, MPI_COMM_WORLD);
 	
-	if(rank == 0) {
-		float sum_rcv = 0;
-		for(int i = 0; i < size; i++) {
-			float rcv;
-			MPI_Recv(&rcv, 1, MPI_FLOAT, i, 0, MPI_COMM_WORLD, &status);
-			sum_rcv += rcv;
-		}
-		
-		for(int i = 0; i < size; i++) {
-			MPI_Send(&sum_rcv, 1, MPI_FLOAT, i, 0, MPI_COMM_WORLD);
-		}
+    if(rank == 0) {
+	float sum_rcv = 0;
+	for(int i = 0; i < size; i++) {
+		float rcv;
+		MPI_Recv(&rcv, 1, MPI_FLOAT, i, 0, MPI_COMM_WORLD, &status);
+		sum_rcv += rcv;
 	}
+		
+	for(int i = 0; i < size; i++) {
+		MPI_Send(&sum_rcv, 1, MPI_FLOAT, i, 0, MPI_COMM_WORLD);
+	}
+    }
 	
-	MPI_Recv(&sum_global, 1, MPI_FLOAT, i, 0, MPI_COMM_WORLD, &status);
+    MPI_Recv(&sum_global, 1, MPI_FLOAT, i, 0, MPI_COMM_WORLD, &status);
     
     avg = sum_global / (NELEM * size);
 
