@@ -4,14 +4,13 @@
 
 int main(int argc, char *argv[]) {
     int n;
-    int rank, size;
+	int rank, size;
+	MPI_Status status;
+	MPI_Init(&argc, &argv);
+	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+	MPI_Comm_size(MPI_COMM_WORLD, &size);
     
-    MPI_Status status;
-    MPI_Init(&argc, &argv);
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-    MPI_Comm_size(MPI_COMM_WORLD, &size);
-    
-    double init = MPI_Wtime();
+	double init = MPI_Wtime();
 	
 	sscanf(argv[1], "%d", &n);
 	
@@ -58,7 +57,9 @@ int main(int argc, char *argv[]) {
 //		printf("\n");
 //	}
 	
-    return 0;
+	MPI_Finalize();
+	
+   	return 0;
 }
 
 
