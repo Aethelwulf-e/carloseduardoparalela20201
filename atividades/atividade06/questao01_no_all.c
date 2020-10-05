@@ -1,3 +1,4 @@
+// Correção: 0,3
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -29,7 +30,9 @@ int main(int argc, char *argv[]) {
 
     // Média Global
     // MPI_Allreduce(&sum_local, &sum_global, 1, MPI_FLOAT, MPI_SUM, MPI_COMM_WORLD);
-    
+   
+    // Correção: acho que o problema aqui é que você está incluindo o rank 0 em 
+    // comunicação que ele já fez parte. 
     MPI_Send(&sum_local, 1, MPI_FLOAT, 0, 0, MPI_COMM_WORLD);
 	
     if(rank == 0) {
