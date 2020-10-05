@@ -1,3 +1,4 @@
+// Nota 0,4. Tinha que enviar o valor por chamada coletiva.
 #include <stdio.h>
 #include <stdlib.h>
 #include <mpi.h>
