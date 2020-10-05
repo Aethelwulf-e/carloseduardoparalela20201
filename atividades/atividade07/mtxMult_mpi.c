@@ -1,3 +1,4 @@
+// Nota 0,5. 
 #include <stdio.h>
 #include <stdlib.h>
 #include <mpi.h>
@@ -24,7 +25,8 @@ int main(int argc, char *argv[]) {
 			m2[i] = 1.0;
 		}	
 	}
-	
+
+	// Não era para fazer broadcast das duas.	
 	MPI_Bcast(m1, n*n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 	MPI_Bcast(m2, n*n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 	
