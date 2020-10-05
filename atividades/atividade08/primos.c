@@ -1,3 +1,4 @@
+// Nota 1,0. Usou diretivas bloqueantes!
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -34,12 +35,13 @@ int main(int argc, char *argv[]) {
 		
 	for(int i = 0; i < n/chunk_size; i++) {
 		int snd = i * chunk_size;
-			
+		// Bloqueante!!!	
 		MPI_Send(&snd, 1, MPI_INT, get_random_number(1, size-1, i), 0, MPI_COMM_WORLD);
 	}
 		
 	for(int i = 0; i < n/chunk_size; i++) {
 		int source_rank = get_random_number(1, size-1, i);
+		// Bloqueante!!!
 		MPI_Recv(is_prime + (i * chunk_size), chunk_size, MPI_INT, source_rank, 0, MPI_COMM_WORLD, &status);
 	}
 		
