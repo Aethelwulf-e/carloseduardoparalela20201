@@ -1,3 +1,4 @@
+// Correção: OK. Nota: 2,5
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,7 +49,7 @@ size_t szGlobalWorkSize; // global work size
 size_t szLocalWorkSize; // local work size
 
 float rand_01(){	
-    return float(rand())/RAND_MAX;
+     return float(rand())/RAND_MAX;
 }
 
 // Função Main
@@ -93,6 +94,7 @@ int main (int argc, char *argv[]) {
 	srcC = (cl_float *) malloc(sizeof(cl_float) * iNumElements);
 
 	// Inicializar os arrays
+	// Correção: você está colocando valores aleatórios dentro de um vetor A, é isso?
 	for (int i = 0; i < 2*iNumElements; i++) {
 		*(srcA + i) = rand_01();
 		//*(srcB + i) = rand_01();	
@@ -343,6 +345,8 @@ int main (int argc, char *argv[]) {
 	clFinish(cmdQueue);
 
 	// Verifica o resultado
+	// Correção: então usou o método de Monte Carlo.
+	// Acaba que cada workItem faz muito pouco, mas tudo bem.
 	result = 0.0;
 	for (int i = 0; i < iNumElements; i++) {
 		result += srcC[i] <= 1;
