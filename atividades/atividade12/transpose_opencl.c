@@ -1,5 +1,4 @@
-// Correção: Não imprimiu nada, mas parece estar correto. Nota 1,0.
-// Mandei uma mensagem no Slack, responda para a gente entender o que aconteceu.
+// Correção: Ok. Nota 2,5.
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
